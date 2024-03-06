@@ -1,0 +1,83 @@
+<%- include('layout/header') %>
+
+  <div class="container">
+    <div class="row my-4">
+      <div class="col-lg-12">
+        <% if (message) { %>
+          <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>
+              <%= message.message %>
+            </strong>
+          </div>
+          <% } %>
+            <div class="table-reponsive">
+              <% if (teams !="" ) { %>
+                <h1 class="font-weight-bold">POINTS TABLE</h1>
+                <table class="table table-bordered table-hover text-center my-4">
+                  <thead>
+                    <tr class="table-dark">
+                      <th>NO.</th>
+                      <th>TEAM</th>
+                      <th>PLAYED</th>
+                      <th>WON</th>
+                      <th>LOST</th>
+                      <th>DRAW</th>
+                      <th>PENALTY</th>
+                      <th>POINTS</th>
+                      <th>WON %</th>
+                      <th>ACTION</th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="align-middle">
+                    <% teams.forEach((row, idx)=> { %>
+                      <tr>
+                        <td>
+                          <%= idx + 1 %>
+                        </td>
+                        <td>
+                          <%= row.teamName %>
+                        </td>
+                        <td>
+                          <%= row.teamTotalMatch %>
+                        </td>
+                        <td>
+                          <%= row.teamWon %>
+                        </td>
+                        <td>
+                          <%= row.teamLost %>
+                        </td>
+                        <td>
+                          <%= row.teamDraw %>
+                        </td>
+                        <td>
+                          <%= row.teamPenalty %>
+                        </td>
+                        <td>
+                          <%= row.teamPoints %>
+                        </td>
+                        <td>
+                          <%= row.teamWinPercentage %>%
+                        </td>
+                        <td>
+                          <a href="/updateTeam/<%= row._id %>" class="text-success"><i class="fa-solid fa-gear mx-1"
+                              style="color: #FFD43B;"></i></a>
+                          <a href="/deleteTeam/<%= row._id %>" class="text-danger"><i class="fas fa-trash mx-1"></i></a>
+                        </td>
+                      </tr>
+                      <% }) %>
+                  </tbody>
+                </table>
+                <% } else { %>
+                  <h3 class="text-center text-secondary mt-5">No Teams Data Found in the Database !!</h3>
+                  <div class="text-center">
+                    <i class="fa-regular fa-face-sad-tear fa-2xl text-secondary"></i>
+                  </div>
+                  <% } %>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('layout/footer') %>
