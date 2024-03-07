@@ -34,7 +34,7 @@ router.post('/addTeam', async (req, res) => {
     teamPenalty: Number(teamPenalty),
   });
 
-  const point = await Point.findOne(); 
+  const point = await Point.findOne();
   if (point == null) {
     return res.json({
       message: 'Point system not found',
