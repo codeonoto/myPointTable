@@ -52,7 +52,11 @@
                           <%= row.teamDraw %>
                         </td>
                         <td>
-                          <%= row.teamPenalty %>
+                          <% if (row.teamPenalty===0) { %>
+                            <%= row.teamPenalty %>
+                              <% } else { %>
+                                -<%= row.teamPenalty %>
+                                  <% } %>
                         </td>
                         <td>
                           <%= row.teamPoints %>

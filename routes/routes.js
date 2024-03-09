@@ -249,7 +249,7 @@ router.post('/updateTeam/:id', async (req, res) => {
       return res.redirect('/');
     }
 
-    const point = await Point.findOne(); // Fetch the point object
+    const point = await Point.findOne();
     if (point == null) {
       return res.json({
         message: 'Point system not found',
