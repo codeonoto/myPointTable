@@ -129,10 +129,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/addTeam', (req, res) => {
-  res.render('addTeam', { title: 'AddTeam' });
-});
-
+// GET /addPoint route
 router.get('/addPoint', (req, res) => {
   res.render('addPoint', { title: 'AddPoint' });
 });
