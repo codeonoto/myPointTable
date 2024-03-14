@@ -149,6 +149,7 @@ router.get('/updatePoint', async (req, res) => {
   }
 });
 
+
 router.post('/updatePoint', async (req, res) => {
   const { wonPoint, drawPoint } = req.body;
 
